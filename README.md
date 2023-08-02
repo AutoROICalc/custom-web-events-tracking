@@ -87,20 +87,24 @@ Additionally, it is possible to append a custom source with an option to ignore 
 AutoRoiCalc.appendNewSource("custom source");
 // to append the custom source, ignoring the timeout check
 AutoRoiCalc.appendNewSource("custom source", true);
+// to append the source in the default manner, check timeout, whilst using a custom local storage item name for the timeout timestamp
+AutoRoiCalc.appendNewSource("custom source", true, "custom_storage_item_name");
 ```
 ### Getting currently collected sources so far
 This gets a list of currently appended sources so far:
 ```javascript
 AutoRoiCalc.getSources();
+// get the sources whilst ignoring the duplicates check
+AutoRoiCalc.getSources(false);
 ```
 ### Send an event to AutoROICalc
 Using this method, it is possible to send the custom event to AutoROICalc from the client side:
 ```javascript
 AutoRoiCalc.sendEvent("Record type", "Record description");
 ```
-The first two parameters are required: the record type and description. There are additional parameters to set the record value (default is 1), whether to check the timeout from the last event sent, or whether to send the event with a custom source at this stage:
+The first two parameters are required: the record type and description. There are additional parameters to set the record value (default is 1), whether to check the timeout from the last event sent, whether to use a custom local storage item name for storing the event timestamp for the timeout check, or whether to send the event with a custom source at this stage:
 ```javascript
-AutoRoiCalc.sendEvent("Record type", "Record description", 1, false, "Custom Source");
+AutoRoiCalc.sendEvent("Record type", "Record description", 1, true, "custom_storage_item_name", "Custom Source");
 ```
 ### Put the collected sources into a cookie
 For further server-sided processing, it is possible to put the sources into a cookie:
