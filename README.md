@@ -22,7 +22,7 @@ In the snippet below, we load the auto-roi-calc.js script first. Next, we set th
   <script>
     AutoRoiCalc.setTrackingId(<YOUR_TRACKING_ID>);
     AutoRoiCalc.appendNewSource();
-    AutoRoiCalc.sendEvent("Sample event source", "Sample event description");
+    AutoRoiCalc.sendEvent("Sample event type", "Sample event description");
   </script>
 </head>
 <body>
@@ -111,6 +111,7 @@ For further server-sided processing, it is possible to put the sources into a co
 ```javascript
 AutoRoiCalc.setCookie();
 ```
+Please note that the array of collected sources is saved as a string with values separated by the `|` character.
 Each time this method is triggered, the cookie value is updated according to currently collected session sources.
 ## Need help?
 Contact the support at support@autoroicalc.com
