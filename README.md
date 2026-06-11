@@ -20,9 +20,9 @@ In the snippet below, we load the auto-roi-calc.js script first. Next, we set th
   <title>Sample Page</title>
   <script src="auto-roi-calc.js"></script>
   <script>
-    AutoRoiCalc.setTrackingId(<YOUR_TRACKING_ID>);
+    AutoRoiCalc.setTrackingId("<YOUR_TRACKING_ID>");
     AutoRoiCalc.appendNewSource();
-    AutoRoiCalc.sendEvent("Sample event type", "Sample event description");
+    AutoRoiCalc.sendEvent("Sample event source", "Sample event description");
   </script>
 </head>
 <body>
@@ -86,7 +86,7 @@ Additionally, it is possible to append a custom source with an option to ignore 
 // to append the custom source, with the timeout check
 AutoRoiCalc.appendNewSource("custom source");
 // to append the custom source, ignoring the timeout check
-AutoRoiCalc.appendNewSource("custom source", true);
+AutoRoiCalc.appendNewSource("custom source", false);
 // to append the source in the default manner, check timeout, whilst using a custom local storage item name for the timeout timestamp
 AutoRoiCalc.appendNewSource("custom source", true, "custom_storage_item_name");
 ```
@@ -109,9 +109,8 @@ AutoRoiCalc.sendEvent("Record type", "Record description", 1, true, "custom_stor
 ### Put the collected sources into a cookie
 For further server-sided processing, it is possible to put the sources into a cookie:
 ```javascript
-AutoRoiCalc.setCookie();
+AutoRoiCalc.setSourcesCookie();
 ```
-Please note that the array of collected sources is saved as a string with values separated by the `|` character.
 Each time this method is triggered, the cookie value is updated according to currently collected session sources.
 ## Need help?
 Contact the support at support@autoroicalc.com
