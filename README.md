@@ -102,9 +102,9 @@ Using this method, it is possible to send the custom event to AutoROICalc from t
 ```javascript
 AutoRoiCalc.sendEvent("Record type", "Record description");
 ```
-The first two parameters are required: the record type and description. There are additional parameters to set the record value (default is 1), whether to check the timeout from the last event sent, whether to use a custom local storage item name for storing the event timestamp for the timeout check, or whether to send the event with a custom source at this stage:
+The first two parameters are required: the record type and description. There are additional parameters to set the record value (default is 1), whether to check the timeout from the last event sent, whether to use a custom local storage item name for storing the event timestamp for the timeout check, or whether to send the event with a custom source at this stage, or whether to attach tags to the created record:
 ```javascript
-AutoRoiCalc.sendEvent("Record type", "Record description", 1, true, "custom_storage_item_name", "Custom Source");
+AutoRoiCalc.sendEvent("Record type", "Record description", 1, true, "custom_storage_item_name", "Custom Source", ["Lead", "Pricing"]);
 ```
 ### Put the collected sources into a cookie
 For further server-sided processing, it is possible to put the sources into a cookie:
